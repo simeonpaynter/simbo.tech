@@ -3,55 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simeon's Photo Feed</title>
+    <title>Simbo Tech | Data Science & Consulting</title>
     <style>
+        /* Base Reset & Styling */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
-            font-family: sans-serif; 
-            background: #121212; 
-            color: #ffffff; 
-            text-align: center; 
-            padding: 50px 20px; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background: #0f0f11; 
+            color: #e4e4e7; 
+            line-height: 1.6; 
+            padding-top: 70px; /* Prevents sticky nav from covering content */
         }
-        .container { 
-            max-width: 600px; 
-            margin: 0 auto; 
-            background: #1e1e1e; 
-            padding: 30px; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        
+        /* Navigation Bar Architecture */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #18181b;
+            border-bottom: 1px solid #27272a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            height: 60px;
+            z-index: 1000;
         }
-        h1 { color: #ff5722; margin-bottom: 10px; }
-        p { color: #aaa; font-size: 1.1rem; }
-        img { 
-            width: 100%; 
-            max-width: 400px; 
-            border-radius: 8px; 
-            margin: 20px 0; 
-            border: 2px solid #333;
+        .nav-logo {
+            font-weight: 700;
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
         }
-        .status-badge {
-            background: #2e7d32;
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 20px;
-            display: inline-block;
-            font-weight: bold;
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: #a1a1aa;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #ffffff;
+        }
+
+        /* Responsive Layout Containers */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .card {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 30px;
+        }
+        h1 { color: #ffffff; font-size: 2.2rem; margin-bottom: 10px; letter-spacing: -0.5px; }
+        h2 { color: #ffffff; font-size: 1.5rem; margin: 25px 0 15px 0; }
+        p { color: #a1a1aa; margin-bottom: 20px; font-size: 1.05rem; }
+        
+        /* Tabbed Routing Logic via Simple JS JavaScript */
+        .page-content { display: none; }
+        .page-content.active-page { display: block; }
+
+        /* Code/SOP Display Formatting */
+        pre {
+            background: #09090b;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid #27272a;
+            color: #f4f4f5;
+            font-family: "SFMono-Regular", Consolas, monospace;
             font-size: 0.9rem;
+            margin: 15px 0;
+        }
+        .badge {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
 
+    <!-- Unified Navigation Engine -->
+    <nav class="navbar">
+        <a href="#" class="nav-logo" onclick="switchPage('home')">simbo.tech</a>
+        <ul class="nav-links">
+            <li><a href="#" id="link-home" class="active" onclick="switchPage('home')">Home</a></li>
+            <li><a href="#" id="link-web-design" onclick="switchPage('web-design')">Web Design SOP</a></li>
+            <li><a href="#" id="link-test" onclick="switchPage('test')">Test Page</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
-        <div class="status-badge">✓ Connection Successful</div>
-        <h1>simeon.pics is Live!</h1>
-        <p>This template confirms your Porkbun domain is successfully hosting from GitHub Pages.</p>
-        
-        <!-- Placeholder image to test layout -->
-        <img src="https://unsplash.com" alt="Test Landscape">
-        
-        <p style="font-size: 0.9rem; margin-top: 20px;">Next up: Swapping this out for your custom taggable grid!</p>
+
+        <!-- TARGET: HOME PROFILE PAGE -->
+        <section id="page-home" class="page-content active-page">
+            <div class="card">
+                <span class="badge">Production Environment Live</span>
+                <h1>Simeon Paynter</h1>
+                <p>Welcome to my technical hub. This space documentations my data science workflows, analytics project portfolios, and open-source infrastructure playbooks for local enterprise deployments.</p>
+            </div>
+        </section>
+
+        <!-- TARGET: WEB DESIGN SOP PAGE -->
+        <section id="page-web-design" class="page-content">
+            <div class="card">
+                <span class="badge">SOP-01 // Infrastructure Blueprint</span>
+                <h1>Open Source Consultation Architecture</h1>
+                <p>This workspace serves as a live resource for small business owners migrating away from premium vendor infrastructure lock-in.</p>
+                
+                <h2>Framework Infrastructure Analysis</h2>
+                <p>By shifting to an itemized operating expense (OpEx) registry system via Porkbun and managing native compiled static layouts via GitHub Pages, structural technology costs drop to a flat fee of under $15 per year per domain registry asset.</p>
+                
+                <h2>How to Read Our Docs</h2>
+                <p>Select any itemized manual guide or system decision tree. All guides are offered completely free of charge to promote system autonomy among independent businesses.</p>
+            </div>
+        </section>
+
+        <!-- TARGET: TEST-FOLDER / TEST-PAGE ROUTE -->
+        <section id="page-test" class="page-content">
+            <div class="card">
+                <span class="badge">Environment Diagnostic</span>
+                <h1>Test Node Active</h1>
+                <p>This isolated view container serves as a proof of concept for your <code>test-folder/test-page</code> directory structure mapping layout.</p>
+                <pre>Status: 200 OK
+Subdomain Mapping: Active
+Directory Context: Test Frame Rendered Successfully</pre>
+            </div>
+        </section>
+
     </div>
 
+    <!-- Page Switcher Logic Script -->
+    <script>
+        function switchPage(pageId) {
+            // Suppress standard browser execution jumps
+            event.preventDefault();
+            
+            // Hide all active content views
+            document.querySelectorAll('.page-content').forEach(content => {
+                content.classList.remove('active-page');
+            });
+            
+            // Kill all active navigation text selections
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Project selected target parameters to view layer
+            document.getElementById('page-' + pageId).classList.add('active-page');
+            document.getElementById('link-' + pageId).classList.add('active');
+            
+            // Smoothly auto-scroll view window back to top 
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
 </body>
 </html>
