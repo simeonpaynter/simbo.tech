@@ -3,175 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simbo Tech | Data Science & Consulting</title>
+    <title>Simbo Tech Lab // Open Sandbox</title>
     <style>
-        /* Base Reset & Styling */
+        /* Minimalist Developer UI Styling */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            background: #0f0f11; 
-            color: #e4e4e7; 
-            line-height: 1.6; 
-            padding-top: 70px; /* Prevents sticky nav from covering content */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; 
+            background: #0a0a0c; color: #d1d1d6; line-height: 1.6; padding-top: 80px;
+            -webkit-font-smoothing: antialiased;
         }
         
-        /* Navigation Bar Architecture */
         .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: #18181b;
-            border-bottom: 1px solid #27272a;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 30px;
-            height: 60px;
-            z-index: 1000;
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(18, 18, 22, 0.8); backdrop-filter: blur(12px);
+            border-bottom: 1px solid #1c1c24; display: flex; 
+            justify-content: space-between; align-items: center; padding: 0 40px; height: 65px; z-index: 1000;
         }
-        .nav-logo {
-            font-weight: 700;
-            color: #3b82f6;
-            text-decoration: none;
-            font-size: 1.2rem;
-            letter-spacing: -0.5px;
+        .nav-logo { font-weight: 600; color: #fff; text-decoration: none; font-family: monospace; }
+        .nav-links { display: flex; list-style: none; gap: 24px; }
+        .nav-links a { color: #8e8e93; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: #3a86ff; }
+
+        .container { max-width: 850px; margin: 40px auto; padding: 0 24px; }
+        .card { background: #121216; border: 1px solid #1c1c24; border-radius: 12px; padding: 45px; margin-bottom: 30px; }
+        
+        h1 { color: #ffffff; font-size: 2.2rem; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px; }
+        p { color: #a1a1aa; margin-bottom: 20px; font-size: 1.05rem; }
+        .badge { background: rgba(58, 134, 255, 0.1); color: #3a86ff; padding: 6px 12px; border-radius: 6px; font-size: 0.75rem; font-family: monospace; font-weight: 600; display: inline-block; margin-bottom: 20px; }
+        
+        /* Interactive Separate Markdown Drawer Trigger */
+        .dropdown-btn {
+            width: 100%; background: #1c1c24; color: #fff; border: 1px solid #2c2c35;
+            padding: 18px 24px; text-align: left; font-size: 1rem; font-weight: 500;
+            border-radius: 8px; cursor: pointer; display: flex; justify-content: space-between;
+            align-items: center; transition: background 0.2s, border-color 0.2s; margin-top: 20px;
         }
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 20px;
+        .dropdown-btn:hover { background: #22222b; border-color: #3a86ff; }
+        .dropdown-icon { transition: transform 0.2s ease; font-size: 0.75rem; color: #8e8e93; }
+        
+        /* Clean Markdown Rendering Output Viewport */
+        .dropdown-content {
+            max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;
+            background: #0d0d11; border: 0 solid #1c1c24; border-radius: 0 0 8px 8px;
+            font-size: 0.95rem; color: #a1a1aa; font-family: monospace; white-space: pre-wrap;
         }
-        .nav-links a {
-            color: #a1a1aa;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-        .nav-links a:hover, .nav-links a.active {
-            color: #ffffff;
+        .dropdown-content.open {
+            max-height: 3500px; border-width: 0 1px 1px 1px; padding: 40px; margin-bottom: 30px;
         }
 
-        /* Responsive Layout Containers */
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        .card {
-            background: #18181b;
-            border: 1px solid #27272a;
-            border-radius: 12px;
-            padding: 35px;
-            margin-bottom: 30px;
-        }
-        h1 { color: #ffffff; font-size: 2.2rem; margin-bottom: 10px; letter-spacing: -0.5px; }
-        h2 { color: #ffffff; font-size: 1.5rem; margin: 25px 0 15px 0; }
-        p { color: #a1a1aa; margin-bottom: 20px; font-size: 1.05rem; }
-        
-        /* Tabbed Routing Logic via Simple JS JavaScript */
         .page-content { display: none; }
         .page-content.active-page { display: block; }
-
-        /* Code/SOP Display Formatting */
-        pre {
-            background: #09090b;
-            padding: 20px;
-            border-radius: 8px;
-            overflow-x: auto;
-            border: 1px solid #27272a;
-            color: #f4f4f5;
-            font-family: "SFMono-Regular", Consolas, monospace;
-            font-size: 0.9rem;
-            margin: 15px 0;
-        }
-        .badge {
-            background: rgba(59, 130, 246, 0.1);
-            color: #3b82f6;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Unified Navigation Engine -->
     <nav class="navbar">
-        <a href="#" class="nav-logo" onclick="switchPage('home')">simbo.tech</a>
+        <a href="#" class="nav-logo" onclick="switchPage('home')">simbo.tech // sandbox</a>
         <ul class="nav-links">
-            <li><a href="#" id="link-home" class="active" onclick="switchPage('home')">Home</a></li>
-            <li><a href="#" id="link-web-design" onclick="switchPage('web-design')">Web Design SOP</a></li>
-            <li><a href="#" id="link-test" onclick="switchPage('test')">Test Page</a></li>
+            <li><a href="#" id="link-home" class="active" onclick="switchPage('home')">Dashboard</a></li>
+            <li><a href="#" id="link-docs" onclick="switchPage('docs')">Documentation</a></li>
         </ul>
     </nav>
 
     <div class="container">
 
-        <!-- TARGET: HOME PROFILE PAGE -->
+        <!-- DASHBOARD TAB -->
         <section id="page-home" class="page-content active-page">
             <div class="card">
-                <span class="badge">Production Environment Live</span>
-                <h1>Simeon Paynter</h1>
-                <p>Welcome to my technical hub. This space documentations my data science workflows, analytics project portfolios, and open-source infrastructure playbooks for local enterprise deployments.</p>
+                <span class="badge">SYS STATUS: ONLINE</span>
+                <h1>Open Infrastructure Sandbox</h1>
+                <p>Welcome to the playground. This site serves as a completely free, open-source technical sandbox environment built specifically for my friends in engineering, ops analysts, and technical colleagues who want to challenge themselves.</p>
+                <p>We are exploring how to bypass restrictive, high-margin web providers. Jump into the documentation tab to view the live build templates and playbooks.</p>
             </div>
         </section>
 
-        <!-- TARGET: WEB DESIGN SOP PAGE -->
-        <section id="page-web-design" class="page-content">
+        <!-- DOCUMENTATION TAB -->
+        <section id="page-docs" class="page-content">
             <div class="card">
-                <span class="badge">SOP-01 // Infrastructure Blueprint</span>
-                <h1>Open Source Consultation Architecture</h1>
-                <p>This workspace serves as a live resource for small business owners migrating away from premium vendor infrastructure lock-in.</p>
+                <span class="badge">LAB-01 // FILE_LOADER</span>
+                <h1>Infrastructure Playbooks</h1>
+                <p>This workspace pulls live developer documentation modules dynamically from separate data tracking repositories on our network.</p>
                 
-                <h2>Framework Infrastructure Analysis</h2>
-                <p>By shifting to an itemized operating expense (OpEx) registry system via Porkbun and managing native compiled static layouts via GitHub Pages, structural technology costs drop to a flat fee of under $15 per year per domain registry asset.</p>
+                <!-- DROPDOWN BUTTON TRIGGER -->
+                <button class="dropdown-btn" onclick="togglePlaybook()">
+                    <span>📁 Fetch Block: sop-01.md (Playbook & Financials)</span>
+                    <span id="drop-arrow" class="dropdown-icon">▶</span>
+                </button>
                 
-                <h2>How to Read Our Docs</h2>
-                <p>Select any itemized manual guide or system decision tree. All guides are offered completely free of charge to promote system autonomy among independent businesses.</p>
-            </div>
-        </section>
-
-        <!-- TARGET: TEST-FOLDER / TEST-PAGE ROUTE -->
-        <section id="page-test" class="page-content">
-            <div class="card">
-                <span class="badge">Environment Diagnostic</span>
-                <h1>Test Node Active</h1>
-                <p>This isolated view container serves as a proof of concept for your <code>test-folder/test-page</code> directory structure mapping layout.</p>
-                <pre>Status: 200 OK
-Subdomain Mapping: Active
-Directory Context: Test Frame Rendered Successfully</pre>
+                <!-- DYNAMIC TARGET CONTAINER FOR THE MD FILE -->
+                <pre id="playbook-drawer" class="dropdown-content">Loading technical documentation node from server...</pre>
             </div>
         </section>
 
     </div>
 
-    <!-- Page Switcher Logic Script -->
     <script>
+        // Core View Router
         function switchPage(pageId) {
-            // Suppress standard browser execution jumps
             event.preventDefault();
+            document.querySelectorAll('.page-content').forEach(c => c.classList.remove('active-page'));
+            document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
             
-            // Hide all active content views
-            document.querySelectorAll('.page-content').forEach(content => {
-                content.classList.remove('active-page');
-            });
-            
-            // Kill all active navigation text selections
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            // Project selected target parameters to view layer
             document.getElementById('page-' + pageId).classList.add('active-page');
-            document.getElementById('link-' + pageId).classList.add('active');
-            
-            // Smoothly auto-scroll view window back to top 
+            if (document.getElementById('link-' + pageId)) {
+                document.getElementById('link-' + pageId).classList.add('active');
+            }
             window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // Separate Markdown File Fetch Engine
+        let isLoaded = false;
+        function togglePlaybook() {
+            const drawer = document.getElementById('playbook-drawer');
+            const arrow = document.getElementById('drop-arrow');
+            
+            if (drawer.classList.contains('open')) {
+                drawer.classList.remove('open');
+                arrow.style.transform = 'rotate(0deg)';
+            } else {
+                drawer.classList.add('open');
+                arrow.style.transform = 'rotate(90deg)';
+                
+                // Only run the server fetch request once per session
+                if (!isLoaded) {
+                    fetch('sop-01.md')
+                        .then(response => response.text())
+                        .then(data => {
+                            drawer.textContent = data;
+                            isLoaded = true;
+                        })
+                        .catch(err => {
+                            drawer.textContent = "Error compiling file payload from system repository node.";
+                        });
+                }
+            }
         }
     </script>
 </body>
