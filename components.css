@@ -79,3 +79,28 @@
 .footer-link:hover {
     color: var(--accent);
 }
+
+/* Iframe Embedded Elements */
+.embedded-frame {
+    border: none;
+    width: 100%;
+    border-radius: var(--iframe-radius);
+    background-color: #ffffff; /* Prevents flashing before load */
+}
+
+/* Mobile Direct Booking Button */
+.booking-action-btn {
+    display: block;
+    background-color: var(--accent);
+    color: #ffffff;
+    padding: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.booking-action-btn:active {
+    transform: scale(0.98);
+}
