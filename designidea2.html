@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simeon Paynter</title>
+    
+    <!-- CSS elements and default designs -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <header class="site-header">
+        <h1>Simeon Paynter</h1>
+        <button class="toggle-btn" id="themeToggle" aria-label="Toggle light and dark mode">Light/Dark</button>
+    </header>
+
+    <!-- App Dashboard Block -->
+    <main class="site-main">
+        <div class="app-grid">
+            
+            <!-- Box 1: Simeon.Pics -->
+            <a href="https://simeon.pics" class="app-card">
+                <div class="app-card__icon">📷</div>
+                <div class="app-card__title">Simeon.Pics</div>
+                <div class="app-card__desc">Custom image gallery.</div>
+            </a>
+
+            <!-- Box 2: Fantasy Football -->
+            <a href="#" class="app-card">
+                <div class="app-card__icon">🏆</div>
+                <div class="app-card__title">League Updates</div>
+                <div class="app-card__desc">Fantasy standings and trends.</div>
+            </a>
+
+            <!-- Box 3: Zillow & Places -->
+            <a href="#" class="app-card">
+                <div class="app-card__icon">🏡</div>
+                <div class="app-card__title">Zillow & Places</div>
+                <div class="app-card__desc">Market shifts and cool destinations.</div>
+            </a>
+
+            <!-- Box 4: Spotify Trends -->
+            <a href="#" class="app-card">
+                <div class="app-card__icon">🎵</div>
+                <div class="app-card__title">Audio Trends</div>
+                <div class="app-card__desc">Spotify insights and top tracks.</div>
+            </a>
+
+            <!-- Box 5: Stock Analysis (Explicitly Featured To Span Grid Width) -->
+            <a href="#" class="app-card is-featured">
+                <div class="app-card__icon">📈</div>
+                <div class="app-card__title">Stock Analysis</div>
+                <div class="app-card__desc">Market analytics and automated strategy tracking metrics.</div>
+            </a>
+
+        </div>
+    </main>
+
+    <!-- Minimal Inline Footer Navigation Block -->
+    <footer class="site-footer">
+        <a href="#" class="footer-link">Resume</a>
+        <a href="#" class="footer-link">Contact</a>
+        <a href="calendar.html" class="footer-link">Calendar</a>
+        <a href="#" class="footer-link">Documentation (Simbo.Tech)</a>
+        <a href="#" class="footer-link">Store (TBD)</a>
+    </footer>
+
+    <!-- Native JavaScript Theme Switcher Logical Engine -->
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html>

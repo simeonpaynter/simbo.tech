@@ -1,0 +1,95 @@
+/* Core Page Layout Containers */
+.site-header {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.site-main {
+    width: 100%;
+    max-width: 500px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+/* Featured Spanning Element Rules */
+.app-grid > *.is-featured {
+    grid-column: span 2;
+}
+
+.site-footer {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(142, 142, 147, 0.15);
+}
+
+/* Calendar Layout Engine */
+.site-main--wide {
+    max-width: 1000px;
+}
+
+.calendar-container {
+    width: 100%;
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: var(--calendar-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: background-color var(--transition-speed);
+}
+
+[data-theme="dark"] .calendar-container {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.calendar-desktop-view {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.calendar-mobile-view {
+    display: none;
+}
+
+/* Wide Layout Responsive Breakpoint */
+@media (max-width: 768px) {
+    .calendar-desktop-view {
+        display: none;
+    }
+    
+    .calendar-mobile-view {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+}
+
+
+/* Layout Mobile Adaptability Override */
+@media (max-width: 400px) {
+    .app-grid {
+        grid-template-columns: 1fr;
+    }
+    .app-grid > *.is-featured {
+        grid-column: span 1;
+    }
+}

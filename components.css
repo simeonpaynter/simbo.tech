@@ -1,0 +1,106 @@
+/* Interactive Reusable Elements */
+.toggle-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    color: var(--text-main);
+    transition: transform 0.2s ease;
+}
+
+.toggle-btn:active {
+    transform: scale(0.9);
+}
+
+/* iOS App Box Design with Signature 22px Rounded Edges */
+.app-card {
+    background-color: var(--card-bg);
+    border-radius: var(--app-radius);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-decoration: none;
+    color: var(--text-main);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                background-color var(--transition-speed), 
+                box-shadow 0.2s ease;
+}
+
+[data-theme="dark"] .app-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Desktop Hover States */
+@media (hover: hover) {
+    .app-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+    [data-theme="dark"] .app-card:hover {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    }
+}
+
+/* Touch Action Compression Feedback */
+.app-card:active {
+    transform: scale(0.97);
+}
+
+.app-card__icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.app-card__title {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    letter-spacing: -0.2px;
+}
+
+.app-card__desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* Bottom Text Links */
+.footer-link {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: var(--accent);
+}
+
+/* Iframe Embedded Elements */
+.embedded-frame {
+    border: none;
+    width: 100%;
+    border-radius: var(--iframe-radius);
+    background-color: #ffffff; /* Prevents flashing before load */
+}
+
+/* Mobile Direct Booking Button */
+.booking-action-btn {
+    display: block;
+    background-color: var(--accent);
+    color: #ffffff;
+    padding: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.booking-action-btn:active {
+    transform: scale(0.98);
+}

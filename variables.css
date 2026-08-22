@@ -1,0 +1,21 @@
+/* CSS Variables & iOS Design Tokens */
+:root {
+    --bg-color: #f2f2f7;
+    --card-bg: #ffffff;
+    --text-main: #000000;
+    --text-muted: #8e8e93;
+    --accent: #007aff;
+    --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --transition-speed: 0.25s;
+    --app-radius: 22px;
+    --calendar-radius: 16px;
+    --iframe-radius: 12px;
+}
+
+[data-theme="dark"] {
+    --bg-color: #000000;
+    --card-bg: #1c1c1e;
+    --text-main: #ffffff;
+    --text-muted: #8e8e93;
+    --accent: #0a84ff;
+}
