@@ -41,6 +41,49 @@
     border-top: 1px solid rgba(142, 142, 147, 0.15);
 }
 
+/* Calendar Layout Engine */
+.site-main--wide {
+    max-width: 1000px;
+}
+
+.calendar-container {
+    width: 100%;
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: var(--calendar-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: background-color var(--transition-speed);
+}
+
+[data-theme="dark"] .calendar-container {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.calendar-desktop-view {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.calendar-mobile-view {
+    display: none;
+}
+
+/* Wide Layout Responsive Breakpoint */
+@media (max-width: 768px) {
+    .calendar-desktop-view {
+        display: none;
+    }
+    
+    .calendar-mobile-view {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+}
+
+
 /* Layout Mobile Adaptability Override */
 @media (max-width: 400px) {
     .app-grid {
