@@ -1,0 +1,32 @@
+/* CSS Reset & Document Framework */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* Mobile Media Queries */
+@media (max-width: 400px) {
+    body {
+        padding: 24px 16px;
+    }
+}
