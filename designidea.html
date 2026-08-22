@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simeon | Portal</title>
+    <style>
+        /* CSS Reset and iOS System Core Variables */
+        :root {
+            --bg-color: #f2f2f7;
+            --card-bg: #ffffff;
+            --text-main: #000000;
+            --text-muted: #8e8e93;
+            --accent: #007aff;
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --transition-speed: 0.25s;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #000000;
+            --card-bg: #1c1c1e;
+            --text-main: #ffffff;
+            --text-muted: #8e8e93;
+            --accent: #0a84ff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 20px;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        /* Top Header Area */
+        header {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        /* iOS Theme Toggle Button */
+        .toggle-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+            color: var(--text-main);
+            transition: transform 0.2s ease;
+        }
+
+        .toggle-btn:active {
+            transform: scale(0.9);
+        }
+
+        /* App-Like Grid Container */
+        main {
+            width: 100%;
+            max-width: 500px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+
+        /* Core Grid Rules for 5th Item Span */
+        .app-grid > *:nth-child(5) {
+            grid-column: span 2;
+        }
+
+        /* iOS App Box Design with Signature 22px Rounded Edges */
+        .app-card {
+            background-color: var(--card-bg);
+            border-radius: 22px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-decoration: none;
+            color: var(--text-main);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                        background-color var(--transition-speed), 
+                        box-shadow 0.2s ease;
+        }
+
+        [data-theme="dark"] .app-card {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Desktop and Tablet Hover Action */
+        @media (hover: hover) {
+            .app-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            }
+            [data-theme="dark"] .app-card:hover {
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+            }
+        }
+
+        /* Mobile Tap Compression Action */
+        .app-card:active {
+            transform: scale(0.97);
+        }
+
+        .app-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .app-title {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            letter-spacing: -0.2px;
+        }
+
+        .app-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Bottom Minimal Text Navigation Link System */
+        footer {
+            width: 100%;
+            max-width: 500px;
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(142, 142, 147, 0.15);
+        }
+
+        .footer-link {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--accent);
+        }
+
+        /* Mobile Layout Compaction Switch */
+        @media (max-width: 400px) {
+            .app-grid {
+                grid-template-columns: 1fr;
+            }
+            .app-grid > *:nth-child(5) {
+                grid-column: span 1;
+            }
+            body {
+                padding: 24px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Block -->
+    <header>
+        <h1>Simeon</h1>
+        <button class="toggle-btn" id="themeToggle" aria-label="Toggle light and dark mode">🌓</button>
+    </header>
+
+    <!-- App Dashboard Block -->
+    <main>
+        <div class="app-grid">
+            
+            <!-- Box 1: Simeon.Pics -->
+            <a href="#" class="app-card">
+                <div class="app-icon">📷</div>
+                <div class="app-title">Simeon.Pics</div>
+                <div class="app-desc">Custom image gallery.</div>
+            </a>
+
+            <!-- Box 2: Fantasy Football -->
+            <a href="#" class="app-card">
+                <div class="app-icon">🏆</div>
+                <div class="app-title">League Updates</div>
+                <div class="app-desc">Fantasy standings and trends.</div>
+            </a>
+
+            <!-- Box 3: Zillow & Places -->
+            <a href="#" class="app-card">
+                <div class="app-icon">🏡</div>
+                <div class="app-title">Zillow & Places</div>
+                <div class="app-desc">Market shifts and cool destinations.</div>
+            </a>
+
+            <!-- Box 4: Spotify Trends -->
+            <a href="#" class="app-card">
+                <div class="app-icon">🎵</div>
+                <div class="app-title">Audio Trends</div>
+                <div class="app-desc">Spotify insights and top tracks.</div>
+            </a>
+
+            <!-- Box 5: Stock Analysis (Spans Full Width) -->
+            <a href="#" class="app-card">
+                <div class="app-icon">📈</div>
+                <div class="app-title">Stock Analysis</div>
+                <div class="app-desc">Market analytics and automated strategy tracking metrics.</div>
+            </a>
+
+        </div>
+    </main>
+
+    <!-- Minimal Inline Footer Navigation Block -->
+    <footer>
+        <a href="#" class="footer-link">Resume</a>
+        <a href="#" class="footer-link">Contact</a>
+        <a href="#" class="footer-link">Calendar</a>
+        <a href="#" class="footer-link">Simbo.Tech</a>
+        <a href="#" class="footer-link">Store</a>
+    </footer>
+
+    <!-- Native JavaScript Theme Switcher Logical Engine -->
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        // Check for saved user theme option, default to light
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            let newTheme = 'light';
+
+            if (currentTheme === 'light') {
+                newTheme = 'dark';
+            }
+
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html>
