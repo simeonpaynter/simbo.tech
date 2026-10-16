@@ -12,4 +12,6 @@ const bars = plot-bg
   .data(DUMMY_DATA)
   .enter()
   .append('div')
-  .classed('bar', true);
+  .classed('bar', true)
+  .style('width', '100px')
+  .style('height', '50px');
