@@ -5,8 +5,4 @@ const DUMMY_DATA = [
 ];
 
 d3.select('div')
-  .selectAll('p')
-  .data(DUMMY_DATA)
-  .enter()
-  .append('p')
-  .text(dta => dta.region);
+  .classed('plot-bg', true)
