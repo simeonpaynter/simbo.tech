@@ -4,14 +4,14 @@ const DUMMY_DATA = [
   { id: 'd3', value: 12, region: 'CHINA'}
 ];
 
-const plot-bg = d3.select('div')
+const bg = d3.select('div')
   .classed('plot-bg', true)
 
-const bars = plot-bg
+const bars = bg
   .selectAll('.bar')
   .data(DUMMY_DATA)
   .enter()
   .append('div')
   .classed('bar', true)
   .style('width', '100px')
-  .style('height', '50px');
+  .style('height', (data.value * 15) + 'px');
