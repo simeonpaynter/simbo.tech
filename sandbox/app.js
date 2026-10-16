@@ -4,5 +4,12 @@ const DUMMY_DATA = [
   { id: 'd3', value: 12, region: 'CHINA'}
 ];
 
-d3.select('div')
+const plot-bg = d3.select('div')
   .classed('plot-bg', true)
+
+const bars = plot-bg
+  .selectAll('.bar')
+  .data(DUMMY_DATA)
+  .enter()
+  .append('div')
+  .classed('bar', true);
