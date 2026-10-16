@@ -22,6 +22,6 @@ const bars = bg
   .append('rect')
   .classed('bar', true)
   .attr('width', xScale.bandwidth())
-  .attr('height', (data) => yScale(data.value))
+  .attr('height', (data) => 400 - yScale(data.value))
   .attr('x', data => xScale.region)
   .attr('y', data => yScale(data.value));
