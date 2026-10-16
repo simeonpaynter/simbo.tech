@@ -14,4 +14,4 @@ const bars = bg
   .append('div')
   .classed('bar', true)
   .style('width', '100px')
-  .style('height', (data.value * 10) + 'px');
+  .style('height', data => (data.value * 10) + 'px');
