@@ -3,4 +3,4 @@ d3.select('div')
   .data([1,2, 3])
   .enter()
   .append('p')
-  .text('hello');
+  .text(dta => dta);
