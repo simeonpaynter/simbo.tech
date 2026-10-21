@@ -38,19 +38,19 @@
         display: flex;
         gap: 5px;
       }
-      li {
-        padding: 10px;
-        color: var(--primary-color);
-        background-color: white;
-          
-      }
     .sort-types {
         display: flex;
         padding: 20px;
         display: flex;
         justify-content: space-between;
+        gap: 10px;
     }
-        
+      li {
+        padding: 10px;
+        color: var(--primary-color);
+        background-color: white;   
+        text-decoration: none;
+      }
       aside {
         width: 768px;
         flex-shrink: 0;
@@ -66,16 +66,19 @@
         margin: 25px;
       }
       .movie-card, .movie-preview-img {
-        max-width: 300px;
+        max-width: 600px;
+        min-height: 750px;
         border: 1px solid var(--text-color-light);
       }
       .movie-title {
         color: var(--text-color-bold);
         align-content: center;
         background-color: white;
+        height: 100px;
       } 
       .movie-desc {
         color: var(--text-color);
+        height: 500px;
       }
     </style>
 </head>
