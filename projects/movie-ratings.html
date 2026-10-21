@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Ratings</title>
+    <title>Movie Reviews</title>
     <style>
       :root {
         --bg-color: #FAFAFA;
@@ -21,7 +21,11 @@
         background-color: var(--bg-color);
         font-family: var(--primary-font-stack);
       }
+    header {
+        min-height: 50px;
+    }
       nav {
+        justify-content: right; 
         display: flex;
         gap: 5px;
       }
@@ -29,15 +33,23 @@
         padding: 10px;
         color: var(--primary-color);
       }
+    .sort-types {
+        display: flex;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+        
       aside {
         max-width: 768px;
+        border: 1px solid var(--text-color-light);
       }
       main {
         display: flex;
         flex-direction: row;
         gap: 20px;
       }
-      .project-card, .movie-preview-img {
+      .movie-card, .movie-preview-img {
         max-width: 300px;
         border: 1px solid var(--text-color-light);
       }
@@ -52,77 +64,81 @@
 </head>
     <!-- Google tag (gtag.js) -->    
 <body>
-  <!-- Search and Navigation Bar -->
-  <nav>
-    <search>
-      <form>
-        <label for="site-search">Seach the site:</label>
-        <input type="search" id="site-search" name="q" placeholder="Type your query" required>
-        <button type="submit"></button>
-      </form>
-    </search>
-    <ul>
-      <li>By Genre</li>
-      <li>By Era</li>
-      <li>By Actor/Actress</li>
-      <li>Etc.</li>
-    </ul>
-  </nav>
+    <header>
+        <img src="#" class="site-header-img">
+        <h1 class="site-header-title">Movie Reviews</h1>
+        <!-- Search and Navigation Bar -->
+          <nav>
+            <search>
+              <form>
+                <label for="site-search">Seach the site:</label>
+                <input type="search" id="site-search" name="q" placeholder="Search for a movie, genre, etc." required>
+                <button type="submit"></button>
+              </form>
+            </search>
+            <ul class="sort-types">
+              <li class="sort-type">By Genre</li>
+              <li class="sort-type">By Era</li>
+              <li class="sort-type">By Actor/Actress</li>
+              <li class="sort-type">Etc.</li>
+            </ul>
+          </nav>
+    </header>
 
   <!-- Side content (web) or first content (mobile) to submit a review, currently just using embeddable Google Form for simplicity. -->
-  <aside>
-    <h2>Submit a review</h2>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScQfaN7606ATJowUKaqpQAgIwRKI8CGU1bC8ARF10smFE-OPw/viewform?embedded=true"
-      width="100%" height="900"
-      frameborder="0"
-      marginheight="0"
-      marginwidth="0">Loading…
-    </iframe>
-  </aside>
+    <aside>
+        <h2>Submit a review</h2>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScQfaN7606ATJowUKaqpQAgIwRKI8CGU1bC8ARF10smFE-OPw/viewform?embedded=true"
+          width="100%" height="900"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0">Loading…
+        </iframe>
+    </aside>
   
-  <main>
-    <h2>Find related movies and click in for more review details.</h2>
-    <section class="movie-grid">
-      <div class="movie-card">
-        <img src="#" alt="placeholder image" class="movie-preview-img">
-        <h3 class="movie-title"></h3>
-        <p class="movie-desc"></p>
-        <p>Placeholder for avg star ratings. link to details.</p>
-      </div>
-      <div class="movie-card">
-        <img src="#" alt="placeholder image" class="movie-preview-img">
-        <h3 class="movie-title"></h3>
-        <p class="movie-desc"></p>
-        <p>second Placeholder for avg star ratings. link to details.</p>
-      </div>
-      <div class="movie-card">
-        <img src="#" alt="placeholder image" class="movie-preview-img">
-        <h3 class="movie-title"></h3>
-        <p class="movie-desc"></p>
-        <p>third Placeholder for avg star ratings. link to details.</p>
-      </div>
-    </section>
-      <div class="movie-card">
-        <img src="#" alt="placeholder image" class="movie-preview-img">
-        <h3 class="movie-title"></h3>
-        <p class="movie-desc"></p>
-        <p>#4 Placeholder and more details.</p>
-      </div>
-      <div class="movie-card">
-        <img src="#" alt="placeholder image" class="movie-preview-img">
-        <h3 class="movie-title"></h3>
-        <p class="movie-desc"></p>
-        <p>#5 Placeholder and more details.</p>
-      </div>
-      <div class="movie-card">
-        <img src="#" alt="placeholder image" class="movie-preview-img">
-        <h3 class="movie-title"></h3>
-        <p class="movie-desc"></p>
-        <p>#6 Placeholder and more details.</p>
-      </div>
-    </section>
-  </main>
-
-<p>Placeholder for more info, documentation, footer, contact, etc.</p>
+    <main>
+        <h2>Find related movies and click in for more review details.</h2>
+        <section class="movie-grid">
+          <div class="movie-card">
+            <img src="#" alt="placeholder image" class="movie-preview-img">
+            <h3 class="movie-title"></h3>
+            <p class="movie-desc"></p>
+            <p>Placeholder for avg star ratings. link to details.</p>
+          </div>
+          <div class="movie-card">
+            <img src="#" alt="placeholder image" class="movie-preview-img">
+            <h3 class="movie-title"></h3>
+            <p class="movie-desc"></p>
+            <p>second Placeholder for avg star ratings. link to details.</p>
+          </div>
+          <div class="movie-card">
+            <img src="#" alt="placeholder image" class="movie-preview-img">
+            <h3 class="movie-title"></h3>
+            <p class="movie-desc"></p>
+            <p>third Placeholder for avg star ratings. link to details.</p>
+          </div>
+        </section>
+          <div class="movie-card">
+            <img src="#" alt="placeholder image" class="movie-preview-img">
+            <h3 class="movie-title"></h3>
+            <p class="movie-desc"></p>
+            <p>#4 Placeholder and more details.</p>
+          </div>
+          <div class="movie-card">
+            <img src="#" alt="placeholder image" class="movie-preview-img">
+            <h3 class="movie-title"></h3>
+            <p class="movie-desc"></p>
+            <p>#5 Placeholder and more details.</p>
+          </div>
+          <div class="movie-card">
+            <img src="#" alt="placeholder image" class="movie-preview-img">
+            <h3 class="movie-title"></h3>
+            <p class="movie-desc"></p>
+            <p>#6 Placeholder and more details.</p>
+          </div>
+        </section>
+    </main>
+    
+    <p>Placeholder for more info, documentation, footer, contact, etc.</p>
 </body>
 </html>
