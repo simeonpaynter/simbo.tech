@@ -27,14 +27,14 @@
         }
         #site-header-img {
             align-content: start;
-            margin-left: 20px;
+            margin: 20px;
             height: 60px;
             background-color: var(--bg-color);
         }
         #site-header-name {
             color: var(--text-color-bold);
             font-family: Impact, var(--primary-font-stack);
-            margin-right: 20px;
+            margin: 20px;
         }
         #site-search {
             min-width: 200px;
@@ -70,6 +70,8 @@
         background-color: white;
         padding: 25px;
         margin: 25px;
+        min-width: 400px;
+        max-width: 800px;
       }
     .movie-grid {
         display: flex;
@@ -93,25 +95,6 @@
         color: var(--text-color);
         height: 260px;
       }
-
-    
-    /* Mobile size - reshaping from wide to single scroll and adjust sizing / spacing. */
-    @media (min-width: 481px) {
-        .movie-grid {
-            gap: 10px;
-        }
-        #site-header-img {
-            align-content: start;
-            margin-left: 10px;
-            height: 40px;
-            background-color: var(--bg-color);
-        }
-        #site-header-name {
-            color: var(--text-color-bold);
-            font-family: Impact, var(--primary-font-stack);
-            margin-right: 10px;
-        }
-    }
     </style>
 </head>
     <!-- Google tag (gtag.js) -->    
