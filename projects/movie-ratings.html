@@ -37,12 +37,14 @@
             margin-right: 20px;
         }
         #site-search {
-            min-width: 50px;
-            size: 20px;
+            min-width: 200px;
+            size: 24px;
         }
       nav {
         justify-content: right; 
+        flex-wrap: row;
         gap: 5px;
+        background-color: white;
       }
     .sort-types {
         display: flex;
@@ -54,12 +56,11 @@
     }
       li {
         padding: 15px;
-          min-width: 35px;
+        min-width: 35px;
         color: var(--primary-color);
-        background-color: white;
       }
       aside {
-        width: 768px;
+        width: 500px;
         flex-shrink: 0;
         background-color: white;
         padding: 25px;
@@ -73,9 +74,9 @@
     .movie-grid {
         display: flex;
         flex-grow: 1;
+        flex-wrap: row;
         justify-content: space-between;
         gap: 20px;
-        
     }
       .movie-card, .movie-preview-img {
         min-width: 280px;
@@ -90,15 +91,27 @@
       } 
       .movie-desc {
         color: var(--text-color);
-        height: 320px;
+        height: 260px;
       }
 
     
     /* Mobile size - reshaping from wide to single scroll and adjust sizing / spacing. */
     @media (min-width: 481px) {
-
+        .movie-grid {
+            gap: 10px;
+        }
+        #site-header-img {
+            align-content: start;
+            margin-left: 10px;
+            height: 40px;
+            background-color: var(--bg-color);
+        }
+        #site-header-name {
+            color: var(--text-color-bold);
+            font-family: Impact, var(--primary-font-stack);
+            margin-right: 10px;
+        }
     }
-    
     </style>
 </head>
     <!-- Google tag (gtag.js) -->    
@@ -126,11 +139,13 @@
 
   <!-- Side content (web) or first content (mobile) to submit a review, currently just using embeddable Google Form for simplicity. -->
     <aside>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScQfaN7606ATJowUKaqpQAgIwRKI8CGU1bC8ARF10smFE-OPw/viewform?embedded=true"
-          width="100%" height="900"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0">Loading Google Form for Reviewing movies…
+        <iframe 
+            id="review-submission"
+            src="https://docs.google.com/forms/d/e/1FAIpQLScQfaN7606ATJowUKaqpQAgIwRKI8CGU1bC8ARF10smFE-OPw/viewform?embedded=true"
+            width="100%" height="750"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0">Loading Google Form for Reviewing movies…
         </iframe>
     </aside>
     
