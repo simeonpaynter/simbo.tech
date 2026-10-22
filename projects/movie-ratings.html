@@ -22,14 +22,19 @@
         background-color: var(--bg-color);
         font-family: var(--primary-font-stack);
       }
+        header {
+            display: flex;
+        }
         #site-header-img {
-            margin: 20px;
+            align-content: start;
+            margin-left: 20px;
             height: 60px;
+            background-color: var(--bg-color);
         }
         #site-header-name {
             color: var(--text-color-bold);
             font-family: Impact, var(--primary-font-stack);
-            margin: 20px;
+            margin-right: 20px;
         }
         #site-search {
             min-width: 50px;
@@ -37,14 +42,12 @@
         }
       nav {
         justify-content: right; 
-        display: flex;
         gap: 5px;
       }
     .sort-types {
         display: flex;
         padding: 0px;
         margin: 0px;
-        display: flex;
         justify-content: space-between;
         gap: 10px;
         list-style-type: none;
