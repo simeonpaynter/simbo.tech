@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click to Flip Card</title>
+  <style>
+    /* 1. The perspective container sets the stage for 3D elements */
+    .flip-card-container {
+      width: 300px;
+      height: 400px;
+      perspective: 1000px; /* Gives the 3D depth effect */
+      cursor: pointer;
+      margin: 50px auto;
+    }
+
+    /* 2. The inner wrapper that actually rotates */
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d; /* Required for true 3D placement */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    /* 3. This JavaScript-triggered class executes the rotation */
+    .flip-card-inner.is-flipped {
+      transform: rotateY(180deg);
+    }
+
+    /* 4. Common styling for both card faces */
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden; /* Safari support */
+      backface-visibility: hidden;         /* Hides the reverse side */
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* 5. Front face styling */
+    .flip-card-front {
+      background-color: #2e3d49;
+      color: white;
+    }
+
+    /* 6. Back face styling (initially turned 180 degrees) */
+    .flip-card-back {
+      background-color: #02b3e4;
+      color: white;
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Card Component -->
+  <div class="flip-card-container" onclick="flipCard(this)">
+    <div class="flip-card-inner">
+      
+      <!-- Front Side -->
+      <div class="flip-card-front">
+        <h2>Front Side</h2>
+        <p>Click anywhere on this card to flip it over.</p>
+      </div>
+      
+      <!-- Back Side -->
+      <div class="flip-card-back">
+        <h2>Back Side</h2>
+        <p>Awesome! Click again to flip it back.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JavaScript to handle the toggle -->
+  <script>
+    function flipCard(container) {
+      // Finds the inner wrapper element inside the clicked container
+      const cardInner = container.querySelector('.flip-card-inner');
+      // Toggles the class that contains the CSS rotation property
+      cardInner.classList.toggle('is-flipped');
+    }
+  </script>
+
+</body>
+</html>
